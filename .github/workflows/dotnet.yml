@@ -7,7 +7,13 @@ on:
   push:
     paths: 
       - 'Application/**'
-    
+
+env:
+  registryName: xxeywlyyvsawgwthreg.azurecr.io
+  repositoryName: what-the-hack-event/wth-team17
+  dockerFolderPath: Application/src/RazorPagesTestSample
+  tag: ${{ github.run_number }}
+
 jobs:
   build:
 
@@ -25,3 +31,13 @@ jobs:
       run: dotnet build ./Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj --no-restore 
     - name: Test
       run: dotnet test ./Application/tests/RazorPagesTestSample.Tests/RazorPagesTestSample.Tests.csproj --no-build --verbosity normal
+
+  docker:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker login
+        run: docker login $registryName -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+      - name: Docker build
+        run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
+      - name: Docker push
+        run: docker push $registryName/$repositoryName:$tag
