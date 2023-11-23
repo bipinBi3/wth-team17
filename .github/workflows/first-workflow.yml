@@ -1,4 +1,5 @@
 name: DevHack Workflow
+on: workflow_dispatch
 jobs:
   job1:
   - run: echo "this is job 1" 
