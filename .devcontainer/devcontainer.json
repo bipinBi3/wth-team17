@@ -6,7 +6,7 @@
       "installBicep": true,
       "version": "latest"
     },
-    "ghcr.io/devcontainers/features/actions-runner:1": {
+    "ghcr.io/devcontainers-contrib/features/actions-runner:1": {
       "version": "latest"
     }
   }
