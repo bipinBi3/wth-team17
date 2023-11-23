@@ -13,7 +13,7 @@ jobs:
     name: job1
     runs-on: ubuntu-latest
     steps:
-    - run: echo "this is job env.STRING_VARIABLE" 
+    - run: echo "this is job $STRING_VARIABLE" 
   job2:
     name: job2
     needs: job1
