@@ -5,7 +5,8 @@ name: .NET
 
 on:
   push:
-    paths: './Application/*'
+    paths: 
+      - './Application/*'
     
 jobs:
   build:
