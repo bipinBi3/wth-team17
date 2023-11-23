@@ -1,11 +1,11 @@
 name: Deploy to Azure
 on:
   workflow_dispatch:
-  workflow_call:
-  inputs:
-    environment:
-      type: string
-      default: 'dev'
+  # workflow_call:
+    inputs:
+      environment:
+        type: string
+        default: 'dev'
 
 jobs:
   build-and-deploy:
