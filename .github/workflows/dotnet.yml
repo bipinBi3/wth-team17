@@ -13,6 +13,7 @@ env:
   repositoryName: what-the-hack-event/wth-team17
   dockerFolderPath: Application/src/RazorPagesTestSample
   tag: ${{ github.run_number }}
+  sha: ${{ github.sha }}
 
 jobs:
   build:
@@ -57,4 +58,4 @@ jobs:
       - uses: azure/webapps-deploy@v2
         with:
           app-name: 'xxeywlyyvsawg-dev'
-          images: 'xxeywlyyvsawgwthreg.azurecr.io/what-the-hack-event/wth-team17:${{ env.tag }}'
+          images: 'xxeywlyyvsawgwthreg.azurecr.io/what-the-hack-event/wth-team17:${{ env.sha }}'
