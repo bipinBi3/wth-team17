@@ -1,6 +1,11 @@
 name: Deploy to Azure
 on:
   workflow_dispatch:
+  # workflow_call:
+    inputs:
+      environment:
+        type: string
+        default: 'dev'
 
 jobs:
   build-and-deploy:
@@ -22,7 +27,7 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ vars.AZURE_RG }}
         template: ./InfrastructureAsCode/main.bicep
-        parameters: environment=prod
+        parameters: environment=${{ inputs.environment }}
 
       # output containerName variable from template
     - run: echo ${{ steps.deploy.outputs.containerName }}
