@@ -10,4 +10,4 @@ jobs:
     name: job2
     runs-on: ubuntu-latest
     steps:
-      - run: echo "this is job 2"
+    - run: echo "this is job 2"
