@@ -1,7 +1,9 @@
 name: DevHack Workflow
 on: 
+  workflow_dispatch:
   issues:
-    type: opened
+    type: 
+    - opened
 jobs:
   job1:
     name: job1
