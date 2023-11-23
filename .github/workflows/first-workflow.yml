@@ -1,0 +1,6 @@
+name: DevHack Workflow
+jobs:
+  job1:
+  - run: echo "this is job 1" 
+  job2:
+  - run: echo "this is job 2"
