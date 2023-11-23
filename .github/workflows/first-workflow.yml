@@ -4,12 +4,16 @@ on:
   issues:
     type: 
     - opened
+
+env:
+  STRING_VARIABLE: variable
+
 jobs:
   job1:
     name: job1
     runs-on: ubuntu-latest
     steps:
-    - run: echo "this is job 1" 
+    - run: echo "this is job env.STRING_VARIABLE" 
   job2:
     name: job2
     needs: job1
